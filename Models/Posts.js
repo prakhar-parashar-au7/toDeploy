@@ -24,9 +24,14 @@ const postSchema = new schema ({
         type : schema.Types.ObjectId,
         ref : 'User'
     },
-    Comments : {
-        type : Array
+    
+    Comments : [],
+
+    Likes : {
+        type: Number,
+        default : 0
     }
+
 })
 
 const Posts = mongoose.model('Posts', postSchema)

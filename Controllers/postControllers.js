@@ -1,14 +1,14 @@
 import Posts from '../Models/Posts.js'
 import jwt from 'jsonwebtoken'
 import Users from '../Models/User.js'
-import Posts from '../Models/Posts.js'
+
 
 
 
 const controllers = {
 
     addPosts : (req, res) => {
-        console.log("heyy")
+
         const token = req.body.token
         jwt.verify(token, 'secret', (err, user) => {
             if(err) res.json({
@@ -25,6 +25,7 @@ const controllers = {
 
             const date = new Date()
             req.body.DateTime = date
+            req.body.Comments = ["heyy", "hi"]
             Posts.create(req.body).then((post, err) => {
                 if (err) {
                     res.json({
@@ -46,11 +47,41 @@ const controllers = {
       
 },
 
-   viewPost : (req, res) => {
-             
-   }
-}
+    viewPosts : (req, res) => {
+         
+        Posts.find((err, Posts) => {
+            if(err) {
+                res.send(err)
 
+            }
+            res.send(Posts)
+        })
+
+
+    },
+
+    likePost : (req, res) => {
+        const id = req.params.id
+        Posts.update({_id : id}, {$inc:{Likes :1}}, (err, post) => {
+           if(err){res.send(err)}
+            res.send("Liked Successfully")
+        })
+        
+},
+    
+    commentOnPost : (req, res) => {
+        const id = req.params.id
+
+        Posts.update({_id : id}, {
+            $push : {
+                Comments : req.body.comment
+            }
+        
+        }).then(() => {
+            res.send("Commented")
+        })
+    }
+}
 
 
 export default controllers
