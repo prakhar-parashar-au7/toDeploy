@@ -8,6 +8,12 @@ import cookieHandler from './cookies.js'
 const Router = express()
 
 Router.use(cookieParser())
+
+//to check  if deployed on heroku 
+
+Router.get('/', (req, res) => {
+    res.send("done")
+})
  
 //User SignUp
 Router.post('/userSignUpPost', userControllers.signUpPost)
