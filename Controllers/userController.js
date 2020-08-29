@@ -37,16 +37,16 @@ const controllers = {
         
         User.findOne({userName : req.body.userName}, (err, user) => {
             if(err) {
-                res.send("User not found")
+                res.json({message : "User not found"})
             }
             if(!user){
-                res.send("User not found")
+                res.json({message :"User not found"})
             }
             
            bcrypt.compare (req.body.password, user.password, (err, result) => {
                if(err) {
                    console.log("heyyy")
-                   res.send("password don't match")
+                   res.json({message :"password don't match"})
                }
                else if (result == true){
                 
@@ -58,7 +58,7 @@ const controllers = {
 
                }
                else {
-                   res.send("password don't match")
+                   res.json({message :"password don't match"})
                }
 
            }) 
