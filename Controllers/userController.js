@@ -42,6 +42,8 @@ const controllers = {
             if(!user){
                 res.json({message :"User not found"})
             }
+            else {
+
             
            bcrypt.compare (req.body.password, user.password, (err, result) => {
                if(err) {
@@ -62,6 +64,7 @@ const controllers = {
                }
 
            }) 
+        }
 
             
 
