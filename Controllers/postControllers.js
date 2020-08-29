@@ -23,6 +23,8 @@ const controllers = {
             }
             req.body.User = user._id
 
+            console.log(req.body.User)
+
             const date = new Date()
             req.body.DateTime = date
             req.body.Comments = ["heyy", "hi"]
@@ -46,6 +48,9 @@ const controllers = {
 
       
 },
+
+
+    
 
     viewPosts : (req, res) => {
          
