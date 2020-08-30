@@ -1,6 +1,6 @@
 const cookieHandler = {
     sendCookie : (req, res) => {
-        res.cookie("name", req.body.token, {  httpOnly: true }).json({message :"Login Successful Cookie has been sent",
+        res.cookie("name", req.body.token, {  httpOnly: true }).json({message :"Login Successful Token has been sent",
         token : req.body.token})
         },
     cookieRecieved : (req, res, next) => {
