@@ -22,12 +22,17 @@ Router.get('/', (req, res) => {
 Router.post('/userSignUpPost', userControllers.signUpPost)
 
 
+
+
 //User Login
 Router.post('/userLoginPost', userControllers.logInPost, cookieHandler.sendCookie)
 
 //To add a post
 Router.post('/addPost', cookieHandler.cookieRecieved, postControllers.addPosts)
 
+//For FrontEnd
+
+Router.post('/createPost',  postControllers.createPosts)
 
 // To view all posts
 Router.get('/viewPosts', postControllers.viewPosts)

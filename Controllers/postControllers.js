@@ -8,7 +8,7 @@ import Users from '../Models/User.js'
 const controllers = {
 
     addPosts : (req, res) => {
-
+          
         const token = req.body.token
         jwt.verify(token, 'secret', (err, user) => {
             if(err) res.json({
@@ -85,7 +85,27 @@ const controllers = {
         }).then(() => {
             res.send("Commented")
         })
+    },
+
+    createPost : (req, res) => {
+
+        Posts.create(req.body).then((post, err) => {
+            if (err) {
+                res.json({
+                    status : 400,
+                    message : "Mongodb Cannot create new post",
+                    error : err
+                })
+        }
+        res.json({
+            status : 200,
+            message : "Post created Successfully",
+            post : post
+        })
+    })
+
     }
+
 }
 
 
