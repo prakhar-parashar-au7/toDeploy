@@ -27,7 +27,7 @@ const controllers = {
 
             const date = new Date()
             req.body.DateTime = date
-            req.body.Comments = ["heyy", "hi"]
+            
             Posts.create(req.body).then((post, err) => {
                 if (err) {
                     res.json({
@@ -88,6 +88,9 @@ const controllers = {
     },
 
     createPost : (req, res) => {
+        
+        const date = new Date()
+        req.body.DateTime = date
 
         Posts.create(req.body).then((post, err) => {
             if (err) {
