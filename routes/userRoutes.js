@@ -3,11 +3,14 @@ import userControllers from '../Controllers/userController.js'
 import postControllers from '../Controllers/postControllers.js'
 import cookieParser from 'cookie-parser'
 import cookieHandler from './cookies.js'
+import cors from 'cors'
 
 
 const Router = express()
 
 Router.use(cookieParser())
+
+Router.use(cors())
 
 //to check  if deployed on heroku 
 
