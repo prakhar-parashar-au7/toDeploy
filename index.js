@@ -3,7 +3,7 @@ import express from 'express'
 import bodyparser from 'body-parser'
 import cookieParser from 'cookie-parser'
 
-import router from './Routes/userRoutes.js'
+import router from './routes/userRoutes.js'
 
 import './Models/db_connect.js'
 
@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 app.use(router)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT||3000, () => {
     console.log('Server listening on port 3000')
 })
 
