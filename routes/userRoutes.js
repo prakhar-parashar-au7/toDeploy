@@ -32,7 +32,7 @@ Router.post('/addPost', cookieHandler.cookieRecieved, postControllers.addPosts)
 
 //For FrontEnd
 
-Router.post('/createPost',  postControllers.createPosts)
+Router.post('/createPost',  postControllers.createPost)
 
 // To view all posts
 Router.get('/viewPosts', postControllers.viewPosts)
