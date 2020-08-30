@@ -36,6 +36,9 @@ const controllers = {
     logInPost : (req, res, next) => {
         
         User.findOne({userName : req.body.userName}, (err, user) => {
+            if(err) {
+                res.send("User not found")
+            }
             console.log(user)
             
            bcrypt.compare (req.body.password, user.password, (err, result) => {
