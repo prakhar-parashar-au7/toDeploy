@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 
 
@@ -49,6 +50,7 @@ class Register extends Component {
 
 
             <form onSubmit={this.handleSubmit}>
+                <h1>Register Here</h1>
                 <div className="form-group">
                     <label for="exampleInputEmail1">userName</label>
                     <input onChange= {this.handleuserName} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter userName"></input>
@@ -60,6 +62,9 @@ class Register extends Component {
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+                <br></br><br></br><br></br><br></br>
+                <Link to="/login">Login Here</Link>
             </form>
         )
     }
