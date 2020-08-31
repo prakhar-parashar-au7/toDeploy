@@ -39,7 +39,9 @@ const controllers = {
             if(err) {
                 res.send("User not found")
             }
-            console.log(user)
+            if(!user){
+                res.send("User not found")
+            }
             
            bcrypt.compare (req.body.password, user.password, (err, result) => {
                if(err) {
