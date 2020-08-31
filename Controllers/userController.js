@@ -43,6 +43,7 @@ const controllers = {
             
            bcrypt.compare (req.body.password, user.password, (err, result) => {
                if(err) {
+                   console.log("heyyy")
                    res.send("password don't match")
                }
                else if (result == true){
@@ -53,6 +54,9 @@ const controllers = {
   
                   })
 
+               }
+               else {
+                   res.send("password don't match")
                }
 
            }) 
